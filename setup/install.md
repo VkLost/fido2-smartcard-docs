@@ -178,7 +178,7 @@ gpg --card-status
 ![gpg_status-card-okay](../images/gpg-status-okay-gpg-card.png)
 
 # Note:
-# Output may vary dependig on the configured keys and smardcard state.
+# Output may vary dependig on the configured keys and smartcard state.
 
 You should see fingerprints for:
 - Signature
