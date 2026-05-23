@@ -2,8 +2,6 @@
 
 This document lists common problems encountered when using FIDO2 devices as OpenPGP smartcards on Linux and how to fix them.
 
----
-
 ## Issue 1 — No smartcard available
 
 ### Symptoms
@@ -11,7 +9,6 @@ This document lists common problems encountered when using FIDO2 devices as Open
 ```bash
 gpg --card-status
 ```
-
 
 ![gpg_status_error-none_device](../images/gpg-status-error-none-device.png)
 
@@ -41,10 +38,8 @@ gpgconf --kill scdaemon
 
 
 
-👉 If the issue persists, verify your setup:
+If the issue persists, verify your setup:
 See: [setup/install.md](../setup/install.md)
-
----
 
 ## Issue 2 — pcsc_scan shows nothing
 
@@ -57,7 +52,7 @@ pcsc_scan
 
 
 ### Note:
-### If no device is detected, pcscd_scan will continue runnig without showing any device or smartcard information 
+### If no device is detected, pcscd_scan will continue running without showing any device or smartcard information 
 
 No output when device is connected.
 
@@ -73,12 +68,11 @@ No output when device is connected.
 sudo systemctl start pcscd
 ```
 
-👉 If still not detected:
+If still not detected:
 - Reconnect the FIDO2 device
 - Verify dependencies in install guide:
 [setup/install.md](../setup/install.md)
 
----
 
 ## Issue 3 — gpg --card-status hangs or freezes
 
@@ -90,14 +84,12 @@ sudo systemctl start pcscd
 ### Fix
 
 ```bash
-gpgconf --kill scdaemon
+gpgconf --kill scdaemon &&
 sudo systemctl restart pcscd
 ```
 
-👉 If the issue continues, review full setup:
+If the issue continues, review full setup:
 See: [setup/install.md](../setup/install.md)
-
----
 
 
 ## Issue 4 - Device not detected by lsusb
@@ -108,7 +100,7 @@ See: [setup/install.md](../setup/install.md)
 lsusb
 ```
 
-# The Smartcard device not apper in the list:
+# The Smartcard device not appear in the list:
 
 ![lsusb-no-smartcard.png](../images/lsusb-no-smartcard.png)
 
@@ -120,7 +112,7 @@ lsusb
 
 # Fix
 
-- Reconect the device 
+- Reconnect the device 
 - Try a different USB port
 - Check system log:
 
@@ -128,10 +120,8 @@ lsusb
 dmesg | grep -i usb
 ```
 
-👉 If the device is still not detecded, verify your system setup:
+If the device is still not detected, verify your system setup:
 See: [setup/install.md](../setup/install.md)
-
-# ---
 
 
 ## Notes

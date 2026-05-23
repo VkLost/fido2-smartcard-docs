@@ -3,7 +3,6 @@ Fido2 OpenPGP Smartcard Setup on Linux (Fedora & Debian)
 This guide documents the full setup process for using a FIDO2 device as an OpenPGP smartcard on Linux.
 It includes dependency fixes, smartcard detection, GPG configuration, and key creation.
 
----
 
 ## Requirements
 
@@ -11,7 +10,6 @@ It includes dependency fixes, smartcard detection, GPG configuration, and key cr
 - pcscd service available
 - FIDO2 device connected via USB
 
----
 
 ## Step 1 — Install base packages
 
@@ -27,7 +25,6 @@ sudo dnf install gnupg pcsc-lite pcsc-tools ccid
 sudo apt install gnupg pcscd pcsc-tools libccid
 ```
 
----
 
 ## Step 2 — Enable smartcard service
 
@@ -44,7 +41,6 @@ sudo systemctl start pcscd
 sudo systemctl enable pcscd
 ```
 
----
 
 ## Step 3 — Verify USB device  detection
 
@@ -60,7 +56,6 @@ Expected output:
 
 # The smartcard device should apper in the list. 
 
----
 
 ## Step 4 — Test smartcard detection
 
@@ -82,7 +77,6 @@ If nothing appears, check:
 # Note: 
 Output may differ before and after OpenPGP initialization (PIN setup and key genereration)
 
----
 
 ## Step 5 — Check CCID version (important)
 
@@ -106,7 +100,6 @@ Debian:
 dpkg -l | grep ccid
 ```
 
----
 
 ![search-new-version-libccid](../images/search-new-version-libccid.png)
 
@@ -128,7 +121,6 @@ Reboot after installation:
 sudo reboot
 ```
 
----
 
 ## Step 7 — Confirm smartcard is working
 
@@ -149,7 +141,6 @@ gpg --card-status
 You should now see smartcard details instead of:
 "No smartcard available"
 
----
 
 ## Step 8 — Initialize OpenPGP card
 
@@ -161,7 +152,6 @@ Using a GUI tool like Kleopatra:
 
 ⚠ Write them down on paper. Do NOT store digitally.
 
----
 
 ## Step 9 — Generate GPG keys on hardware
 
@@ -185,7 +175,6 @@ You should see fingerprints for:
 - Encryption
 - Authentication
 
----
 
 ## Troubleshooting
 
@@ -204,20 +193,18 @@ Then try again:
 gpg --card-status
 ```
 
----
 
 ### Device detected by lsusb but not by GPG
 
 This usually indicates a communication issue between scdaemon and pcscd.
 
-Fix:
+### Fix:
 
 ```bash
 gpgconf --kill scdaemon
 sudo systemctl restart pcscd
 ```
 
----
 
 ## Final Result
 
