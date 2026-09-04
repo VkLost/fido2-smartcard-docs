@@ -2,6 +2,6 @@ This file is used to verify the OpenPGP signature associated with this repositor
 
 The OpenPGP key used to sign this file is controlled by the repository author.
 
-Repository: FIDO2 OpenPGP Smartcard Setup on Linux (Debian & Ubuntu)
+Repository: fido2-smartcard-docs
 
 The same OpenPGP key is used to sign communications related to this project.
