@@ -5,3 +5,4 @@ The OpenPGP key used to sign this file is controlled by the repository author.
 Repository: fido2-smartcard-docs
 
 The same OpenPGP key is used to sign communications related to this project.
+
